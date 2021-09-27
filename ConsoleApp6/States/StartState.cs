@@ -17,12 +17,17 @@ namespace ConsoleApp6.States
         {
             base.InitStates();
             AddNextState(
-                x => x.Message != null && x.Message.Text is not null &&x.Type == UpdateType.Message && x.Message.Text!.Equals("/add"), 
+                x => x.Message != null  
+                     &&x.Message.Text is not null 
+                     &&x.Type == UpdateType.Message  
+                     &&x.Message.Text!.Equals("/add"), 
                 new AddTwoNumsGetFirst(CurrentChat));
             AddNextState(
                 x => x.Message != null && x.Message.Text is not null &&x.Type == UpdateType.Message && x.Message.Text!.Equals("/listfiles"), 
                 new ListFiles(CurrentChat));
-            AddNextState(x => x.Message.Text is  null && x.Type == UpdateType.Message && x.Message.Document is not null,
+            AddNextState(x => x.Message.Text is  null 
+                                       && x.Type == UpdateType.Message 
+                                       && x.Message.Document is not null,
                 new GetFile(CurrentChat));
         }
         

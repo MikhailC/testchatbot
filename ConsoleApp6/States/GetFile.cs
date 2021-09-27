@@ -9,8 +9,11 @@ namespace ConsoleApp6.States
 {
     public class GetFile:ConversationState
     {
+        
+        
         public GetFile(Chat chat) : base(chat)
         {
+           
         }
 
         protected override async Task Execute(ITelegramBotClient bot, Update message)
@@ -19,8 +22,8 @@ namespace ConsoleApp6.States
             {
                 Directory.CreateDirectory("files");
             }
-            
-             using FileStream fs = new FileStream($"files/{message.Message.Document.FileName}", FileMode.Create);
+
+            await using FileStream fs = new FileStream($"files/{message.Message.Document.FileName}", FileMode.Create);
 
              await  bot.GetInfoAndDownloadFileAsync(message.Message.Document.FileId, fs,
                  cancellationToken: CancellationToken.None);
