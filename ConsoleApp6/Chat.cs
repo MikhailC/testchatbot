@@ -15,11 +15,13 @@ namespace ConsoleApp6
         private static Dictionary<long, Chat> _chats = new Dictionary<long, Chat>();
         public static Chat GetChat(Update update)
         {
+           
             long id = update.Type switch
             {
                 UpdateType.Message => update.Message!.Chat.Id,
                 UpdateType.ChatMember =>update.ChatMember.Chat.Id,
                 UpdateType.ChannelPost =>update.ChannelPost.Chat.Id,
+                UpdateType.CallbackQuery =>update.CallbackQuery.Message.Chat.Id
                 
             };
             
@@ -43,7 +45,7 @@ namespace ConsoleApp6
         public Stack Data = new Stack();
 
 
-        public ConversationState State { get; set; }
+        public StartState State { get; set; }
 
         public ITelegramBotClient bot;
         

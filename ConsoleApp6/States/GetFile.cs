@@ -7,7 +7,7 @@ using File = System.IO.File;
 
 namespace ConsoleApp6.States
 {
-    public class GetFile:ConversationState
+    public class GetFile:StartState
     {
         
         
@@ -25,6 +25,7 @@ namespace ConsoleApp6.States
 
             await using FileStream fs = new FileStream($"files/{message.Message.Document.FileName}", FileMode.Create);
 
+            
              await  bot.GetInfoAndDownloadFileAsync(message.Message.Document.FileId, fs,
                  cancellationToken: CancellationToken.None);
              

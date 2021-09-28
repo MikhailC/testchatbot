@@ -7,7 +7,7 @@ using Telegram.Bot.Types;
 
 namespace ConsoleApp6.States
 {
-    public class GetSumInAllNumbers:ConversationState
+    public class GetSumInAllNumbers:StartState
     {
         public GetSumInAllNumbers(Chat chat) : base(chat)
         {

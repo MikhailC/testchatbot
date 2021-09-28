@@ -46,7 +46,7 @@ namespace ConsoleApp6
         private static async Task UpdateHandler(ITelegramBotClient botClient, Update update,
             CancellationToken cancellationToken)
         {
-            Console.WriteLine(update.Type);
+            //Console.WriteLine(update.Type);
 
             await Chat.GetChat(update).State.DoAction(botClient, update);
 

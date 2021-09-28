@@ -8,7 +8,7 @@ using Telegram.Bot.Types.Enums;
 
 namespace ConsoleApp6.States
 {
-    public class AddTwoNumsGetFirst:ConversationState
+    public class AddTwoNumsGetFirst:StartState
     {
         int _cnt = 1;
         
@@ -45,7 +45,7 @@ namespace ConsoleApp6.States
             await bot.SendTextMessageAsync(CurrentChat.Id, $"Enter {_cnt++} number");
         }
         
-        protected override void OnBeforeExecuteNewState(ConversationState newState,Update message)
+        protected override  void OnBeforeExecuteNewState(StartState newState,Update message)
         {
             if(newState is AddTwoNumsGetFirst)
             CurrentChat.Data.Push(int.Parse(message.Message!.Text!));

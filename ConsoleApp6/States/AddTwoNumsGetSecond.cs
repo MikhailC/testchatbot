@@ -5,7 +5,7 @@ using Telegram.Bot.Types.Enums;
 
 namespace ConsoleApp6.States
 {
-    public class AddTwoNumsGetSecond:ConversationState
+    public class AddTwoNumsGetSecond:StartState
     {
         
         public AddTwoNumsGetSecond(Chat chat) : base(chat)
