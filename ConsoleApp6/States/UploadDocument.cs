@@ -47,8 +47,8 @@ namespace ConsoleApp6.States
                 }else
                 {
                     await bot.SendDocumentAsync(CurrentChat.Id,
-                              iof, 
-                              shortFileName);
+                              iof,
+                              caption:shortFileName);
                 }
             }
             else
