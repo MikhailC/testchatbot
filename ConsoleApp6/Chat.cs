@@ -19,10 +19,10 @@ namespace ConsoleApp6
             long id = update.Type switch
             {
                 UpdateType.Message => update.Message!.Chat.Id,
-                UpdateType.ChatMember =>update.ChatMember.Chat.Id,
-                UpdateType.ChannelPost =>update.ChannelPost.Chat.Id,
-                UpdateType.CallbackQuery =>update.CallbackQuery.Message.Chat.Id
-                
+              //  UpdateType.ChatMember =>update.ChatMember.Chat.Id,
+              //  UpdateType.ChannelPost =>update.ChannelPost.Chat.Id,
+                UpdateType.CallbackQuery =>update.CallbackQuery.Message.Chat.Id,
+                _ => default
             };
             
             
